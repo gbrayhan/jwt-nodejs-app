@@ -1,3 +1,4 @@
-module.exports = {
-  secret: "bezkoder-secret-key"
+const authConfig = {
+  secret: "bezkoder-secret-key",
 };
+export default authConfig;

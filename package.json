@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Node.js Demo for JWT Authentication",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --experimental-modules --es-module-specifier-resolution=node server.js"
   },
   "keywords": [
     "node.js",
@@ -21,7 +23,10 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mysql2": "^2.1.0",
-    "sequelize": "^5.21.3"
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
+  },
+  "devDependencies": {
+    "prettier": "2.3.0"
   }
 }
