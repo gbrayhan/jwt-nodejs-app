@@ -1,9 +1,12 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 const dbConfig = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "qweqwe",
-  DB: "app_auth_jwt",
-  dialect: "mysql",
+  HOST: process.env.DB_SQL_HOST,
+  USER: process.env.DB_SQL_USER,
+  PASSWORD: process.env.DB_SQL_PASSWORD,
+  DB: process.env.DB_SQL_NAME,
+  dialect: process.env.DB_SQL_DIALECT,
   pool: {
     max: 5,
     min: 0,

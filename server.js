@@ -1,33 +1,29 @@
 import express from "express";
-
 import bodyParser from "body-parser";
 import cors from "cors";
-
+import dotenv from "dotenv";
 import db from "./app/models";
 import authRoutes from "./app/routes/auth.routes";
 import userRoutes from "./app/routes/user.routes";
 
+dotenv.config();
 const app = express();
-
 const corsOptions = {
-  origin: "http://localhost:8081",
+  origin: `http://localhost:${process.env.PORT}`,
 };
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const Role = db.role;
 
-db.sequelize.sync().then((r) => {
-});
+db.sequelize.sync().then((r) => {});
 
-// simple route
 app.get("/", (req, res) => {
-  res.json({message: "Welcome to auth application."});
+  res.json({ message: "Welcome to auth application." });
 });
 
-// routes
 authRoutes(app);
 userRoutes(app);
 
